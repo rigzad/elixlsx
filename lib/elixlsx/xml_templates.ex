@@ -595,9 +595,10 @@ defmodule Elixlsx.XMLTemplates do
     </sheetPr>
     <dimension ref="A1"/>
     <sheetViews>
-    <sheetView showZeros="0" workbookViewId="0"
+    <sheetView workbookViewId="0"
     """ <>
       make_sheet_show_grid(sheet) <>
+      make_sheet_show_zeros(sheet) <>
       """
       >
       """ <>
@@ -638,6 +639,13 @@ defmodule Elixlsx.XMLTemplates do
       end
 
     show_grid_lines_xml
+  end
+
+  defp make_sheet_show_zeros(sheet) do
+    case sheet.show_zeros do
+      true -> ""
+      false -> ~s[ showZeros="0" ]
+    end
   end
 
   defp make_sheetview(sheet) do

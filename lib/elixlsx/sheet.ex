@@ -31,7 +31,8 @@ defmodule Elixlsx.Sheet do
             merge_cells: [],
             pane_freeze: nil,
             show_grid_lines: true,
-            data_validations: []
+            data_validations: [],
+            show_zeros: false
 
   @type t :: %Sheet{
           name: String.t(),
