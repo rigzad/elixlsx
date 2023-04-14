@@ -33,6 +33,7 @@ defmodule Elixlsx.Sheet do
             show_grid_lines: true,
             data_validations: [],
             show_zeros: false,
+            orientation: :default,
             fit_to_page: false
 
   @type t :: %Sheet{

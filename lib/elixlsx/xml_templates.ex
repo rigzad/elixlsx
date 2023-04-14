@@ -593,6 +593,7 @@ defmodule Elixlsx.XMLTemplates do
     <sheetPr filterMode="false">
       <pageSetUpPr fitToPage="#{make_sheet_fit_to_page(sheet)}"/>
     </sheetPr>
+    <pageSetup orientation="#{make_sheet_orientation(sheet)}"/>
     <dimension ref="A1"/>
     <sheetViews>
     <sheetView workbookViewId="0"
@@ -654,6 +655,10 @@ defmodule Elixlsx.XMLTemplates do
       _ -> "0"
     end
   end
+
+  defp make_sheet_orientation(%{orientation: :landscape}), do: "landscape"
+  defp make_sheet_orientation(%{orientation: :portrait}), do: "portrait"
+  defp make_sheet_orientation(_), do: "default"
 
   defp make_sheetview(sheet) do
     # according to spec:
