@@ -32,7 +32,7 @@ defmodule Elixlsx.Sheet do
             pane_freeze: nil,
             show_grid_lines: true,
             data_validations: [],
-            show_zeros: false,
+            show_zeros: true,
             orientation: :default,
             fit_to_page: false
 
@@ -47,7 +47,10 @@ defmodule Elixlsx.Sheet do
           merge_cells: [{String.t(), String.t()}],
           pane_freeze: {number, number} | nil,
           show_grid_lines: boolean(),
-          data_validations: list({String.t(), String.t(), list(String.t())})
+          data_validations: list({String.t(), String.t(), list(String.t())}),
+          show_zeros: boolean(),
+          orientation: :landscape | :portrait | any(),
+          fit_to_page: boolean()
         }
   @type rowcol_group :: Range.t() | {Range.t(), opts :: keyword}
 
