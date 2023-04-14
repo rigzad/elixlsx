@@ -593,7 +593,6 @@ defmodule Elixlsx.XMLTemplates do
     <sheetPr filterMode="false">
       <pageSetUpPr fitToPage="#{make_sheet_fit_to_page(sheet)}"/>
     </sheetPr>
-    <pageSetup orientation="#{make_sheet_orientation(sheet)}"/>
     <dimension ref="A1"/>
     <sheetViews>
     <sheetView workbookViewId="0"
@@ -625,6 +624,7 @@ defmodule Elixlsx.XMLTemplates do
       make_data_validations(sheet.data_validations) <>
       """
       <pageMargins left="0.75" right="0.75" top="1" bottom="1.0" header="0.5" footer="0.5"/>
+      <pageSetup orientation="#{make_sheet_orientation(sheet)}"/>
       """ <>
       make_drawing_ref(sheet.images) <>
       """
